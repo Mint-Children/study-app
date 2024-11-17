@@ -1,43 +1,121 @@
+/* 네비게이션 바 */
 .navbar {
-  background-color: #333;
-  padding: 10px;
+  background-color: white; /* 배경색 흰색 */
+  padding: 10px 20px;
+  display: flex; /* 플렉스 컨테이너 */
+  align-items: center;
+  justify-content: space-between; /* 왼쪽 메뉴와 오른쪽 버튼 */
+  position: relative;
+  z-index: 10;
 }
 
+/* 네비게이션 메뉴 */
 .nav-list {
   display: flex;
+  align-items: center;
   list-style: none;
   margin: 0;
   padding: 0;
+  flex-grow: 1;
 }
 
+/* 네비게이션 항목 */
 .nav-item {
-  position: relative;
+  color: black; /* 텍스트 색상 검정 */
   margin: 0 15px;
-  color: white;
   cursor: pointer;
-  padding: 5px 10px;
+  position: relative;
 }
 
+.nav-item:hover {
+  color: skyblue;
+}
+
+/* 드롭다운 메뉴 */
 .dropdown {
   position: absolute;
-  top: 30px; /* 부모 요소 아래로 배치 */
-  left: 0;
-  background-color: #444;
-  list-style: none;
+  top: 100%; /* 부모 요소 아래 */
+  left: 0; /* 부모 요소 기준 수평 정렬 */
+  background-color: #555;
   padding: 10px 0;
+  list-style: none;
   margin: 0;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  z-index: 10; /* 다른 요소 위로 올라오도록 설정 */
-  width: auto; /* 글자 길이에 맞게 너비 자동 조정 */
-  min-width: 150px; /* 최소 너비 설정 */
-  text-align: center; /* 텍스트 가운데 정렬 */
+  white-space: nowrap; /* 텍스트 줄바꿈 방지 */
 }
 
 .dropdown-item {
-  padding: 8px 20px;
   color: white;
+  padding: 8px 20px;
   cursor: pointer;
-  white-space: nowrap; /* 텍스트 줄바꿈 방지 */
-  display: block; /* 블록 요소로 처리 */
+}
+
+.dropdown-item:hover {
+  background-color: #666;
+}
+
+/* 햄버거 버튼 */
+.hamburger-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* 줄 간격 균일 */
+  width: 30px; /* 버튼 너비 */
+  height: 25px; /* 버튼 높이 */
+  cursor: pointer;
+  background: none; /* 배경 제거 */
+  border: none; /* 테두리 제거 */
+  padding: 0; /* 내부 여백 제거 */
+  margin-left: auto; /* 오른쪽 끝으로 고정 */
+}
+
+/* 햄버거 버튼 선 */
+.hamburger-button span {
+  display: block;
+  width: 100%; /* 선 너비 */
+  height: 4px; /* 선 두께 */
+  background-color: black; /* 검정색 선 */
+  border-radius: 2px; /* 끝을 약간 둥글게 */
+}
+
+
+/* 햄버거 버튼으로 열리는 전체 드롭다운 */
+.expanded-menu {
+  background-color: #444;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  z-index: 9;
+}
+
+.menu-column {
+  flex: 1;
+  margin: 0 20px;
+}
+
+.menu-column h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.menu-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-column ul li {
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+.menu-column ul li:hover {
+  text-decoration: underline;
 }
